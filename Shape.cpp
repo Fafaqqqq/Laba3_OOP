@@ -24,6 +24,11 @@ Point& Shape::atPoint(int index)
 	}
 }
 
+Point* Shape::getArc()
+{
+	return _arc;
+}
+
 Shape::~Shape()
 {
 	if (_arc)
