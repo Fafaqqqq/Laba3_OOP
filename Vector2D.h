@@ -8,5 +8,7 @@ public:
 	Vector2D(double x, double y);
 	Vector2D(const Vector2D& other);
 
-	double length();
+	bool equalByLength(const Vector2D& other) const;
+
+	double length() const;
 };
