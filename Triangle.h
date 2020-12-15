@@ -1,11 +1,11 @@
 #pragma once
 #include "Shape.h"
 
-class Rectangle : public Shape
+class Triangle : public Shape
 {
 public:
-	Rectangle() = default;
-	Rectangle(const Point* arrayPoints);
+	Triangle() = default;
+	Triangle(const Point * arrayPoints);
 
 	const char* info() const override;
 	double getArea() const override;
