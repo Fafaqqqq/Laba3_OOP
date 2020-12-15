@@ -7,7 +7,7 @@ const char* TriangleParser::getMessage() const
 	return "Enter three points of Triangle in the format { x, y }: ";
 }
 
-Shape* TriangleParser::scan() const
+std::unique_ptr<Shape> TriangleParser::scan() const
 {
 	const int size = 3;
 	Point arrayOfPoints[size];
@@ -21,7 +21,7 @@ Shape* TriangleParser::scan() const
 		arrayOfPoints[i] = Point(x, y);
 	}
 
-	return new Triangle(arrayOfPoints);
+	return std::make_unique<Triangle>(arrayOfPoints);
 }
 
 

@@ -5,5 +5,5 @@ class RectangleParser : public ParserBase
 {
 private:
 	const char* getMessage() const override;
-	Shape* scan() const override;
+	std::unique_ptr<Shape> scan() const override;
 };

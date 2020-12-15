@@ -7,7 +7,6 @@ class ConsoleInterface
 public:
 	void startInterface() const;
 private:
-	IShapeParser* createParser(const std::string& str) const;
 	const char* getShapeTypeMessage() const;
 	void printMenu() const;
 	std::string typeScanner() const;

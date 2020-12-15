@@ -7,7 +7,7 @@ const char* RectangleParser::getMessage() const
 	return "Enter four points of Rectangle in the format { x, y }: ";
 }
 
-Shape* RectangleParser::scan() const
+std::unique_ptr<Shape> RectangleParser::scan() const
 {
 	const int size = 4;
 	Point arrayOfPoints[size];
@@ -21,5 +21,5 @@ Shape* RectangleParser::scan() const
 		arrayOfPoints[i] = Point(x, y);
 	}
 
-	return new Rectangle(arrayOfPoints);
+	return std::make_unique<Rectangle>(arrayOfPoints);
 }

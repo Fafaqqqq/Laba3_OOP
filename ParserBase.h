@@ -4,9 +4,9 @@
 class ParserBase : public IShapeParser
 {
 public:
-	Shape* parse() const override;
+	std::unique_ptr<Shape> parse() const override;
 private:
 	virtual const char* getMessage() const = 0;
-	virtual Shape* scan() const = 0;
+	virtual std::unique_ptr<Shape> scan() const = 0;
 	
 };

@@ -4,5 +4,7 @@
 class IShapeParser
 {
 public:
-	virtual Shape* parse() const = 0;
+	virtual std::unique_ptr<Shape> parse() const = 0;
+
+	static IShapeParser* createParser(const std::string& str);
 };

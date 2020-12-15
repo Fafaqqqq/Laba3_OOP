@@ -1,10 +1,10 @@
 #include "ParserBase.h"
 #include "Rectangle.h"
 
-Shape* ParserBase::parse() const
+std::unique_ptr<Shape> ParserBase::parse() const
 {
 	bool scanFlag = false;
-	Shape* result = nullptr;
+	std::unique_ptr<Shape> result = nullptr;
 
 	while (!scanFlag)
 	{
@@ -12,7 +12,7 @@ Shape* ParserBase::parse() const
 		{
 			std::cout << getMessage() << std::endl;
 
-			result = scan();
+			return std::make_unique<Shape>(scan());
 			scanFlag = true;
 		}
 		catch (const std::exception& err)
@@ -22,5 +22,5 @@ Shape* ParserBase::parse() const
 		}
 	}
 
-	return result;
+	
 }

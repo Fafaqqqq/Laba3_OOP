@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ConsoleInterface.cpp" />
+    <ClCompile Include="IShapeParser.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Operations.cpp" />
     <ClCompile Include="ParserBase.cpp" />

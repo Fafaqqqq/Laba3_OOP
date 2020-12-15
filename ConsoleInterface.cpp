@@ -8,7 +8,7 @@ void ConsoleInterface::startInterface() const
 {
 	int command = INT32_MAX;
 
-	std::vector<Shape*> shapes;
+	std::vector<std::unique_ptr<Shape>> shapes;
 	
 
 	while (command)
@@ -21,16 +21,16 @@ void ConsoleInterface::startInterface() const
 		{
 		case 1:
 		{
-			std::unique_ptr<IShapeParser> parser(createParser(typeScanner()));
+			/*std::unique_ptr<IShapeParser> parser(IShapeParser::createParser(typeScanner()));
 			
-			shapes.push_back(parser->parse());
+			shapes.emplace_back(parser->parse());*/
 
 			std::cout << std::endl << std::endl;
 		}
 		break;
 		case 2:
 		{
-			areaCalculating(shapes);
+			//areaCalculating(shapes);
 		}
 		break;
 		case 3:
@@ -62,23 +62,8 @@ void ConsoleInterface::startInterface() const
 		}
 	}
 	
-	shapesDeleter(shapes);
+	//shapesDeleter(shapes);
 	
-}
-
-IShapeParser* ConsoleInterface::createParser(const std::string& str) const
-{
-	if (str == "Triangle")
-	{
-		return new TriangleParser();
-	}
-
-	if (str == "Rectangle")
-	{
-		return new RectangleParser();
-	}
-
-	throw std::invalid_argument("Bad argument!");
 }
 
 const char* ConsoleInterface::getShapeTypeMessage() const
