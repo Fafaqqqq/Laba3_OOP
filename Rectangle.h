@@ -5,7 +5,7 @@ class Rectangle : public Shape
 {
 public:
 	Rectangle() = default;
-	Rectangle(const Point* arrayPoints);
+	Rectangle(const std::string& name, std::vector<Point>& arrayPoints);
 
 	const char* info() const override;
 	double getArea() const override;

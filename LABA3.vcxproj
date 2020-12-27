@@ -149,6 +149,7 @@
     <ClCompile Include="RectangleParser.cpp" />
     <ClCompile Include="Scanner.cpp" />
     <ClCompile Include="Shape.cpp" />
+    <ClCompile Include="ShapeStorage.cpp" />
     <ClCompile Include="Triangle.cpp" />
     <ClCompile Include="TriangleParser.cpp" />
     <ClCompile Include="Vector2D.cpp" />
@@ -163,6 +164,7 @@
     <ClInclude Include="RectangleParser.h" />
     <ClInclude Include="Scanner.h" />
     <ClInclude Include="Shape.h" />
+    <ClInclude Include="ShapeStorage.h" />
     <ClInclude Include="Triangle.h" />
     <ClInclude Include="TriangleParser.h" />
     <ClInclude Include="Vector2D.h" />

@@ -4,15 +4,14 @@
 #include "Scanner.h"
 #include <memory>
 
-void ConsoleInterface::startInterface() const
+void ConsoleInterface::startInterface()
 {
 	int command = INT32_MAX;
-
-	std::vector<std::unique_ptr<Shape>> shapes;
 	
 
 	while (command)
 	{
+		system("cls");
 		printMenu();
 		
 		command = numberScanner();
@@ -21,37 +20,32 @@ void ConsoleInterface::startInterface() const
 		{
 		case 1:
 		{
-			/*std::unique_ptr<IShapeParser> parser(IShapeParser::createParser(typeScanner()));
-			
-			shapes.emplace_back(parser->parse());*/
-
-			std::cout << std::endl << std::endl;
+			addShape();
 		}
 		break;
 		case 2:
 		{
-			//areaCalculating(shapes);
+			
+			system("pause");
 		}
 		break;
 		case 3:
 		{
-
+			areaCalculating();
+			system("pause");
 		}
 		break;
 		case 4:
 		{
-
+			system("pause");
 		}
 		break;
 		case 5:
 		{
-
+			system("pause");
 		}
 		break;
 		case 0:
-		{
-
-		}
 		break;
 		default:		
 		{
@@ -60,9 +54,8 @@ void ConsoleInterface::startInterface() const
 		}
 		break;
 		}
-	}
-	
-	//shapesDeleter(shapes);
+
+	}	
 	
 }
 
@@ -75,10 +68,13 @@ void ConsoleInterface::printMenu() const
 {
 	std::cout << "Select the action you want to perform:\n";
 	std::cout << "1. Create new shape.\n";
-	std::cout << "2. Calculate area.\n";
-	std::cout << "3. Print info.\n";
-	std::cout << "4. Compare radiuses.\n";
-	std::cout << "5. Compare area.\n";
+	std::cout << "2. Delete existing shape.\n";
+	std::cout << "3. Calculate area.\n";
+	std::cout << "4. Print info.\n";
+	std::cout << "5. Compare radiuses.\n";
+	std::cout << "6. Compare area.\n";
+	std::cout << "7. Find a shape by name.\n";
+	std::cout << "8. Find a shape by area.\n";
 	std::cout << "0. Exit.\n";
 }
 
@@ -113,15 +109,7 @@ std::string ConsoleInterface::typeScanner() const
 	return type;
 }
 
-void ConsoleInterface::shapesDeleter(std::vector<Shape*>& vec) const
-{
-	for (auto x : vec)
-	{
-		delete x;
-	}
-}
-
-void ConsoleInterface::areaCalculating(const std::vector<Shape*>& vec) const
+void ConsoleInterface::areaCalculating(const ShapeStorage& vec) const
 {
 	if (vec.empty())
 	{
@@ -143,7 +131,7 @@ void ConsoleInterface::areaCalculating(const std::vector<Shape*>& vec) const
 			try
 			{
 				double area = vec[number - 1]->getArea();
-				std::cout << "Area of figure number " << number << ": " << area << std::endl;
+				std::cout << "Area of figure number " << number << ": " << area << std::endl << std::endl;
 			}
 			catch (const std::exception& err)
 			{
@@ -160,6 +148,7 @@ int ConsoleInterface::numberScanner() const
 
 	while (!scanFlag)
 	{
+		std::cout << "Your choice: ";
 		try
 		{
 			Scanner().Scan(std::cin, "%d", &command);
@@ -171,6 +160,20 @@ int ConsoleInterface::numberScanner() const
 			std::cout << "Repeat please!\n\n";
 		}
 	}
-
+	std::cout << std::endl;
 	return command;
+}
+
+void ConsoleInterface::addShape()
+{
+	std::unique_ptr<IShapeParser> parser(IShapeParser::createParser(typeScanner()));
+
+	std::cout << "Enter index which you want to use with this shape: ";
+	int index;
+	Scanner().Scan(std::cin, "%d", &index);
+
+	_shapes.add(parser->parse(), index);
+
+	std::cout << std::endl;
+	system("pause");
 }

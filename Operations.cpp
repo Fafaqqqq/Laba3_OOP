@@ -1,12 +1,12 @@
 #include "Operations.h"
 #include "Vector2D.h"
 
-int Operations::compare(const Shape& obj_1, const Shape& obj_2)
+double Operations::compare(const Shape& obj_1, const Shape& obj_2)
 {
 	return obj_1.getArea() - obj_2.getArea();
 }
 
-int Operations::radiusDifference(const Shape& obj_1, const Shape& obj_2)
+double Operations::radiusDifference(const Shape& obj_1, const Shape& obj_2)
 {
 	obj_1.checkFigure();
 	obj_2.checkFigure();

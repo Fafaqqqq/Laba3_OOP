@@ -1,32 +1,4 @@
-﻿  ParserBase.cpp
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\VC\Tools\MSVC\14.26.28801\include\memory(2067): error C2259: 'Shape': cannot instantiate abstract class
-D:\Учёба\Лабы ООП\LABA3_OOP\LABA3\Shape.h(5): message : see declaration of 'Shape'
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\VC\Tools\MSVC\14.26.28801\include\memory(2067): message : due to following members:
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\VC\Tools\MSVC\14.26.28801\include\memory(2067): message : 'const char *Shape::info(void) const': is abstract
-D:\Учёба\Лабы ООП\LABA3_OOP\LABA3\Shape.h(11): message : see declaration of 'Shape::info'
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\VC\Tools\MSVC\14.26.28801\include\memory(2067): message : 'double Shape::getArea(void) const': is abstract
-D:\Учёба\Лабы ООП\LABA3_OOP\LABA3\Shape.h(12): message : see declaration of 'Shape::getArea'
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\VC\Tools\MSVC\14.26.28801\include\memory(2067): message : 'void Shape::checkFigure(void) const': is abstract
-D:\Учёба\Лабы ООП\LABA3_OOP\LABA3\Shape.h(13): message : see declaration of 'Shape::checkFigure'
-D:\Учёба\Лабы ООП\LABA3_OOP\LABA3\ParserBase.cpp(15): message : see reference to function template instantiation 'std::unique_ptr<Shape,std::default_delete<Shape>> std::make_unique<Shape,std::unique_ptr<Shape,std::default_delete<Shape>>,0>(std::unique_ptr<Shape,std::default_delete<Shape>> &&)' being compiled
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\VC\Tools\MSVC\14.26.28801\include\memory(2068,35): error C2259: 'Shape': cannot instantiate abstract class
-D:\Учёба\Лабы ООП\LABA3_OOP\LABA3\Shape.h(5): message : see declaration of 'Shape'
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\VC\Tools\MSVC\14.26.28801\include\memory(2068,35): message : due to following members:
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\VC\Tools\MSVC\14.26.28801\include\memory(2068,35): message : 'const char *Shape::info(void) const': is abstract
-D:\Учёба\Лабы ООП\LABA3_OOP\LABA3\Shape.h(11): message : see declaration of 'Shape::info'
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\VC\Tools\MSVC\14.26.28801\include\memory(2068,35): message : 'double Shape::getArea(void) const': is abstract
-D:\Учёба\Лабы ООП\LABA3_OOP\LABA3\Shape.h(12): message : see declaration of 'Shape::getArea'
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\VC\Tools\MSVC\14.26.28801\include\memory(2068,35): message : 'void Shape::checkFigure(void) const': is abstract
-D:\Учёба\Лабы ООП\LABA3_OOP\LABA3\Shape.h(13): message : see declaration of 'Shape::checkFigure'
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\VC\Tools\MSVC\14.26.28801\include\memory(2068,35): error C2664: 'Shape::Shape(const Shape &)': cannot convert argument 1 from '_Ty' to 'const Shape &'
-          with
-          [
-              _Ty=std::unique_ptr<Shape,std::default_delete<Shape>>
-          ]
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\VC\Tools\MSVC\14.26.28801\include\memory(2067,59): message : Reason: cannot convert from '_Ty' to 'const Shape'
-          with
-          [
-              _Ty=std::unique_ptr<Shape,std::default_delete<Shape>>
-          ]
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\VC\Tools\MSVC\14.26.28801\include\memory(2068,56): message : No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
-D:\Учёба\Лабы ООП\LABA3_OOP\LABA3\Shape.h(21,1): message : see declaration of 'Shape::Shape'
+﻿  ConsoleInterface.cpp
+D:\Учёба\Лабы ООП\LABA3_OOP\LABA3\ConsoleInterface.cpp(34,20): error C2660: 'ConsoleInterface::areaCalculating': function does not take 0 arguments
+D:\Учёба\Лабы ООП\LABA3_OOP\LABA3\ConsoleInterface.h(14,7): message : see declaration of 'ConsoleInterface::areaCalculating'
+D:\Учёба\Лабы ООП\LABA3_OOP\LABA3\ConsoleInterface.cpp(125,28): warning C4018: '>': signed/unsigned mismatch

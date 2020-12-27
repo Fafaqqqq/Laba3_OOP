@@ -12,15 +12,12 @@ std::unique_ptr<Shape> ParserBase::parse() const
 		{
 			std::cout << getMessage() << std::endl;
 
-			return std::make_unique<Shape>(scan());
-			scanFlag = true;
+			return scan();
 		}
 		catch (const std::exception& err)
 		{
 			std::cerr << err.what() << std::endl;
 			std::cout << "Repeat please!\n\n";
 		}
-	}
-
-	
+	}	
 }

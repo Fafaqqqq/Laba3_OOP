@@ -1,8 +1,8 @@
 #include "Rectangle.h"
 #include "Vector2D.h"
 
-Rectangle::Rectangle(const Point* arrayPoints)
-	: Shape('R', arrayPoints, 4) {}
+Rectangle::Rectangle(const std::string& name, std::vector<Point>& arrayPoints)
+	: Shape(name, arrayPoints) {}
 
 const char* Rectangle::info() const
 {

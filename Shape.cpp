@@ -1,16 +1,10 @@
 #include "Shape.h"
 #include <stdexcept>
 
-Shape::Shape(char id, const Point arrayPoints[], int size)
-	: _id(id),
-	_size(size),
-	_arc(new Point[_size])
-{
-	for (int i = 0; i < _size; i++)
-	{
-		_arc[i] = arrayPoints[i];
-	}
-}
+Shape::Shape(const std::string& name, std::vector<Point>& arrayPoints)
+	: _name(name),
+	_size(arrayPoints.size()),
+	_arc(std::move(arrayPoints)) {}
 
 const Point& Shape::atPoint(int index) const
 {
@@ -24,10 +18,7 @@ const Point& Shape::atPoint(int index) const
 	}
 }
 
-Shape::~Shape()
+const std::string& Shape::getName() const
 {
-	if (_arc)
-	{
-		delete[] _arc;
-	} 
+	return _name;
 }

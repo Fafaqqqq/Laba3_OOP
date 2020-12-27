@@ -5,7 +5,7 @@ class Triangle : public Shape
 {
 public:
 	Triangle() = default;
-	Triangle(const Point * arrayPoints);
+	Triangle(const std::string& name, std::vector<Point>& arrayPoints);
 
 	const char* info() const override;
 	double getArea() const override;

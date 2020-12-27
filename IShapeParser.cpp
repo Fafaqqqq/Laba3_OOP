@@ -2,16 +2,16 @@
 #include "TriangleParser.h"
 #include "RectangleParser.h"
 
-IShapeParser* IShapeParser::createParser(const std::string& str)
+std::unique_ptr<IShapeParser> IShapeParser::createParser(const std::string& str)
 {
 	if (str == "Triangle")
 	{
-		return new TriangleParser();
+		return std::make_unique<TriangleParser>();
 	}
 
 	if (str == "Rectangle")
 	{
-		return new RectangleParser();
+		return std::make_unique<RectangleParser>();
 	}
 
 	throw std::invalid_argument("Bad argument!");
