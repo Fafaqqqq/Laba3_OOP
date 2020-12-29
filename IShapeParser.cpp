@@ -2,14 +2,14 @@
 #include "TriangleParser.h"
 #include "RectangleParser.h"
 
-std::unique_ptr<IShapeParser> IShapeParser::createParser(const std::string& str)
+std::unique_ptr<IShapeParser> IShapeParser::createParser(char str)
 {
-	if (str == "Triangle")
+	if (str == 'T')
 	{
 		return std::make_unique<TriangleParser>();
 	}
 
-	if (str == "Rectangle")
+	if (str == 'R')
 	{
 		return std::make_unique<RectangleParser>();
 	}

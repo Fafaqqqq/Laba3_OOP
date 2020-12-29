@@ -26,6 +26,6 @@ void Rectangle::checkFigure() const
 
 	if (f_diagonal.length() != s_diagonal.length())
 	{
-		throw std::logic_error("This isn`t rectangle!");
+		throw std::logic_error("This isn`t shape!");
 	}
 }

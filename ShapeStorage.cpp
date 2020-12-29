@@ -1,30 +1,41 @@
 #include "ShapeStorage.h"
 #include <exception>
 
-void ShapeStorage::add(std::unique_ptr<Shape> source, int index)
+void ShapeStorage::add(std::unique_ptr<Shape>&& source, int index)
 {
 	if (_defaultStorage.find(index) == _defaultStorage.end())
 	{
-		_defaultStorage[index] = std::move(source);
+		try
+		{
+			_defaultStorage[index] = std::move(source);
 
-		_indexByArea[_defaultStorage[index]->getArea()].insert(index);
-		_indexByName[_defaultStorage[index]->getName()].insert(index);
-		_indexes.insert(index);
+			_indexByArea[_defaultStorage[index]->getArea()].insert(index);
+			_indexByName[_defaultStorage[index]->getName()].insert(index);
+			_indexes.insert(index);
+			
+		}
+		catch (const std::exception& err)
+		{
+			_defaultStorage.erase(index);
+		}
 		return;
 	}
 	
 	throw std::logic_error("Shape with this index already exists!");
 }
 
-Shape& ShapeStorage::operator[](int index)
+const Shape& ShapeStorage::operator[](int index)
 {
-	if (_defaultStorage.find(index) != _defaultStorage.end())
+	std::map<int, std::unique_ptr<Shape>>::iterator it = _defaultStorage.find(index);
+
+	if (it != _defaultStorage.end())
 	{
-		return *_defaultStorage[index];
+		return *(it->second);
 	}
 	
 	throw std::range_error("No such element!");
 }
+
 
 void ShapeStorage::erase(int index)
 {
@@ -44,40 +55,39 @@ void ShapeStorage::erase(int index)
 		}
 
 		_defaultStorage.erase(index);
-
+		_indexes.erase(index);
 		return;
 	}
 
 	throw std::logic_error("No such element!");
 }
 
-const std::set<int>& ShapeStorage::findByArea(double area)
+std::set<int> ShapeStorage::findByArea(double area)
 {
-	if (_indexByArea.find(area) != _indexByArea.end())
+	auto it = _indexByArea.find(area);
+
+	if (it != _indexByArea.end())
 	{
-		return _indexByArea[area];
+		return it->second;
 	}
 	else
 	{
-		return std::move(std::set<int>());
+		return std::set<int>();
 	}
 }
 
-const std::set<int>& ShapeStorage::findByName(const std::string& name)
+std::set<int> ShapeStorage::findByName(const std::string& name)
 {
-	if (_indexByName.find(name) != _indexByName.end())
+	auto it = _indexByName.find(name);
+
+	if (it != _indexByName.end())
 	{
-		return _indexByName[name];
+		return it->second;
 	}
 	else
 	{
-		return std::move(std::set<int>());
+		return std::set<int>();
 	}
-}
-
-const std::set<int>& ShapeStorage::getIndexes()
-{
-	return _indexes;
 }
 
 bool ShapeStorage::empty() const
@@ -88,4 +98,9 @@ bool ShapeStorage::empty() const
 int ShapeStorage::size() const
 {
 	return _defaultStorage.size();
+}
+
+const std::set<int>& ShapeStorage::getIndexes() const
+{
+	return _indexes;
 }

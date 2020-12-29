@@ -6,5 +6,5 @@ class IShapeParser
 public:
 	virtual std::unique_ptr<Shape> parse() const = 0;
 
-	static std::unique_ptr<IShapeParser> createParser(const std::string& str);
+	static std::unique_ptr<IShapeParser> createParser(char str);
 };

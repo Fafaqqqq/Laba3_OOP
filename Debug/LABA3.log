@@ -1,4 +1,4 @@
 ﻿  ConsoleInterface.cpp
-D:\Учёба\Лабы ООП\LABA3_OOP\LABA3\ConsoleInterface.cpp(34,20): error C2660: 'ConsoleInterface::areaCalculating': function does not take 0 arguments
-D:\Учёба\Лабы ООП\LABA3_OOP\LABA3\ConsoleInterface.h(14,7): message : see declaration of 'ConsoleInterface::areaCalculating'
-D:\Учёба\Лабы ООП\LABA3_OOP\LABA3\ConsoleInterface.cpp(125,28): warning C4018: '>': signed/unsigned mismatch
+  main.cpp
+  Generating Code...
+  LABA3.vcxproj -> D:\Учёба\Лабы ООП\LABA3_OOP\Debug\LABA3.exe

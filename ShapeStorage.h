@@ -10,15 +10,17 @@ class ShapeStorage
 {
 public:
 	ShapeStorage() = default;
-	void add(std::unique_ptr<Shape> source, int index);
+	void add(std::unique_ptr<Shape>&& source, int index);
 	void erase(int index);
-	const std::set<int>& findByArea(double area);
-	const std::set<int>& findByName(const std::string& name);
-	const std::set<int>& getIndexes();
+	std::set<int> findByArea(double area);
+	std::set<int> findByName(const std::string& name);
 
-	Shape& operator[](int index);
+	const Shape& operator[](int index);
+
 	bool empty() const;
 	int size() const;
+
+	const std::set<int>& getIndexes() const;
 
 private:
 	std::map<int, std::unique_ptr<Shape>> _defaultStorage;

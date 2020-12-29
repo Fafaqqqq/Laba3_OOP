@@ -1,7 +1,7 @@
 #include "Operations.h"
 #include "Vector2D.h"
 
-double Operations::compare(const Shape& obj_1, const Shape& obj_2)
+double Operations::compareArea(const Shape& obj_1, const Shape& obj_2)
 {
 	return obj_1.getArea() - obj_2.getArea();
 }

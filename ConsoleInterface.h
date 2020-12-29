@@ -10,10 +10,15 @@ public:
 private:
 	const char* getShapeTypeMessage() const;
 	void printMenu() const;
-	std::string typeScanner() const;
-	void areaCalculating(const ShapeStorage& vec) const;
+	char typeScanner() const;
 	int numberScanner() const;
 	void addShape();
+	void deleteShape();
+	void printShapeStorage();
+	void compareArea();
+	void compareRadius();
+	void findByName();
+	void findByArea();
 
 	ShapeStorage _shapes;
 };
