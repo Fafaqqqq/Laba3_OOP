@@ -139,7 +139,35 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ConsoleInterface.cpp" />
+    <ClCompile Include="IShapeParser.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Operations.cpp" />
+    <ClCompile Include="ParserBase.cpp" />
+    <ClCompile Include="Point.cpp" />
+    <ClCompile Include="Rectangle.cpp" />
+    <ClCompile Include="RectangleParser.cpp" />
+    <ClCompile Include="Scanner.cpp" />
+    <ClCompile Include="Shape.cpp" />
+    <ClCompile Include="ShapeStorage.cpp" />
+    <ClCompile Include="Triangle.cpp" />
+    <ClCompile Include="TriangleParser.cpp" />
+    <ClCompile Include="Vector2D.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ConsoleInterface.h" />
+    <ClInclude Include="IShapeParser.h" />
+    <ClInclude Include="Operations.h" />
+    <ClInclude Include="ParserBase.h" />
+    <ClInclude Include="Point.h" />
+    <ClInclude Include="Rectangle.h" />
+    <ClInclude Include="RectangleParser.h" />
+    <ClInclude Include="Scanner.h" />
+    <ClInclude Include="Shape.h" />
+    <ClInclude Include="ShapeStorage.h" />
+    <ClInclude Include="Triangle.h" />
+    <ClInclude Include="TriangleParser.h" />
+    <ClInclude Include="Vector2D.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
