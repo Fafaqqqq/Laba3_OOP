@@ -1,4 +1,4 @@
-﻿#include "ConsoleInterface.h"
+#include "ConsoleInterface.h"
 
 int main()
 {
